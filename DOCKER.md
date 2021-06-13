@@ -10,8 +10,9 @@ This provides a docker-based development environment to start working with Akaun
 cp .env.example .env
 docker-compose up
 docker-compose exec app composer install
-docker-compose exec front npm install && npm run dev
-docker-compose exec app php artisan install --db-name="akaunting" --db-username="root" --db-password="pass" --admin-email="admin@company.com" --admin-password="123456"
+docker-compose exec front npm install
+docker-compose exec front npm run dev
+docker-compose exec app php artisan install --db-host="db" --db-name="akaunting" --db-username="root" --db-password="pass" --admin-email="admin@company.com" --admin-password="123456"
 docker-compose exec app php artisan sample-data:seed
 ```
 
